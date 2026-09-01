@@ -8,6 +8,9 @@
 ![GitHub](https://img.shields.io/badge/GitHub-Version%20Control-181717?logo=github&logoColor=white)
 
 > End-to-end payment analytics project using **BigQuery, SQL, Python, and Power BI** to identify payment failure drivers, gateway performance issues, and settlement reconciliation risks.
+---
+
+[![Power BI](https://img.shields.io/badge/Power%20BI-View%20Live_Dashboard-F2C811?logo=powerbi&logoColor=black&style=for-the-badge)](https://app.fabric.microsoft.com/view?r=eyJrIjoiOWVlM2U1M2MtNTJhNy00YmY3LWE4ZmEtMjU2YzM0MDdmZDk0IiwidCI6IjgzNzRiZGQ3LTRiZTgtNGVmZi04YWQ0LWQ5NmVhZDIyODBmNiJ9)
 
 ---
 
@@ -191,10 +194,10 @@ Use the **1-day settlement cycle as the operational benchmark**.
 
 ## 📁 Project Resources
 
-- [SQL Analysis](SQL-part-on-Bigquery/Data Analysis.sql)
-- [Dataset](YOUR_DATASET_LINK)
-- [Power BI Dashboard](YOUR_POWER_BI_LINK)
-- [Data Generator](YOUR_DATA_GENERATOR_LINK)
+- [SQL Analysis](SQL_queries/Data_Analysis.sql)
+- [Dataset](https://console.cloud.google.com/bigquery?ws=!1m4!1m3!3m2!1sfinance-ad-hoc!2spayment_analytics)
+- [Power BI Dashboard](https://app.fabric.microsoft.com/view?r=eyJrIjoiOWVlM2U1M2MtNTJhNy00YmY3LWE4ZmEtMjU2YzM0MDdmZDk0IiwidCI6IjgzNzRiZGQ3LTRiZTgtNGVmZi04YWQ0LWQ5NmVhZDIyODBmNiJ9)
+- [Data Generator](Dummy_Data.py)
 
 ---
 
