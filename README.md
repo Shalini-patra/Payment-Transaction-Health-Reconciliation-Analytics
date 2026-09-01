@@ -173,7 +173,7 @@ Use the **1-day settlement cycle as the operational benchmark**.
 | Transactions | 1,004,848 |
 | Settlements | 962,702 |
 
-**Dataset:** [View / Download Dataset](YOUR_DATASET_LINK)
+**Dataset:** [View / Generate Dummy Data](Dummy_Data.py)
 
 ---
 
@@ -191,7 +191,7 @@ Use the **1-day settlement cycle as the operational benchmark**.
 
 ## 📁 Project Resources
 
-- [SQL Analysis](YOUR_SQL_FOLDER_LINK)
+- [SQL Analysis](SQL-part-on-Bigquery/Data Analysis.sql)
 - [Dataset](YOUR_DATASET_LINK)
 - [Power BI Dashboard](YOUR_POWER_BI_LINK)
 - [Data Generator](YOUR_DATA_GENERATOR_LINK)
