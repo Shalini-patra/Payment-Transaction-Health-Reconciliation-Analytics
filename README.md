@@ -146,21 +146,21 @@ Use the **1-day settlement cycle as the operational benchmark**.
 
 ### Overview
 
-![Payment Overview Dashboard](images/payment-overview.png)
+![Payment Overview Dashboard](PowerBI_Dashboard_Preview/page1.png)
 
 ### Failures
 
-![Payment Failures Dashboard](images/payment-failures.png)
+![Payment Failures Dashboard](PowerBI_Dashboard_Preview/page2.png)
 
 ### Settlements
 
-![Payment Settlements Dashboard](images/payment-settlements.png)
+![Payment Settlements Dashboard](PowerBI_Dashboard_Preview/page3.png)
 
 ---
 
 ## 🗂️ Data Model
 
-![Payment Analytics Data Model](images/database-schema.png)
+![Payment Analytics Data Model](PowerBI_Dashboard_Preview/data_model.png)
 
 ---
 
