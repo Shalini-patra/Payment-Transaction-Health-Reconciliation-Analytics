@@ -1,0 +1,135 @@
+Raw findings
+1. Gateway B is the primary payment-performance problem
+Gateway B processed 351,669 transactions but had a 19.5% failure rate, compared with only 1.59% for Gateway A and 7.5% for Gateway C.
+Gateway B therefore has a substantially higher failure burden despite processing fewer transactions than Gateway A.
+
+2. Gateway B represents the largest financial exposure from failed payments
+
+Gateway B has:
+
+68,579 failed transactions
+₹41.26M failed transaction value
+19.36% of its transaction value exposed to failures
+
+Gateway C has approximately ₹9.00M, while Gateway A has only ₹4.42M.
+
+So Gateway B is clearly the first gateway that should receive operational and technical attention.
+
+3. The failure problem at Gateway B is heavily concentrated in TIMEOUTs
+
+For Gateway B:
+
+30,621 failures are TIMEOUTs
+TIMEOUTs represent 44.65% of all Gateway B failures
+TIMEOUT-related failed transaction value is approximately ₹18.39M
+
+This means almost half of Gateway B's failures are concentrated in one failure category.
+
+Therefore, the first technical investigation should focus on timeout behavior and the systems surrounding Gateway B's transaction processing.
+
+4. Gateway B also has a major latency problem
+
+Gateway B:
+
+Average response time: 1,247 ms
+P95 response time: 2,731 ms
+
+Compared with Gateway A:
+
+Average response time is approximately 3.1× higher
+P95 response time is approximately 2.8× higher
+
+So Gateway B is both less reliable and substantially slower.
+
+However, our segmented analysis showed that within each gateway, failure rates remain relatively stable across response-time buckets.
+
+Therefore, the business conclusion should not be:
+
+"High latency causes payment failures."
+
+Instead:
+
+Gateway B has both substantially higher latency and substantially higher failure rates, with timeout failures being its dominant failure category; 
+this makes Gateway B the priority for technical investigation, but the current analysis does not establish latency as the direct cause of failures.
+
+5. Gateway A should be the benchmark
+
+Gateway A processes the largest volume:
+
+452,536 transactions
+
+while maintaining:
+
+98.01% success rate
+1.59% failure rate
+398.54 ms average response time
+972.2 ms P95 response time
+
+Therefore, Gateway A provides a reasonable internal performance benchmark for evaluating Gateway B and C.
+
+6. Payment method does NOT appear to be the main problem
+
+All four payment methods have almost identical performance:
+
+Success rate: approximately 90.6%
+Failure rate: approximately 9.0%
+Average response time: approximately 746–749 ms
+
+And the gateway × payment-method analysis shows that the gateway pattern remains almost unchanged across payment methods.
+
+Therefore:
+
+The problem is not concentrated in a particular payment method; gateway performance is the much stronger differentiator in this dataset.
+
+So I would not recommend prioritizing payment-method-specific optimization based on these results.
+
+7. Settlement performance is generally strong, but exceptions have financial significance
+
+Among successful transactions:
+
+910,069 successful transactions
+
+and:
+
+899,185 settled transactions
+
+giving approximately:
+
+98.8% settlement completion
+
+However, the unresolved exceptions represent:
+
+Missing settlements: ₹6.59M
+Delayed settlements: ₹5.44M
+Amount mismatches: ₹1.56M
+
+Total:
+
+≈ ₹13.59M in reconciliation exception value
+
+So settlement performance is generally healthy, but the exception cases still represent meaningful financial exposure.
+
+8. Settlement cycle has a very clear operational baseline
+
+99% of settled transactions are completed within 1 day.
+
+Therefore, a one-day settlement cycle can be treated as the normal operational benchmark.
+
+Transactions exceeding that period should be automatically flagged for investigation.
+
+The actual business solution
+
+Putting everything together, this is the raw business recommendation I would give to the payment operations team:
+
+Prioritize Gateway B for immediate technical and operational investigation because it has the highest failure rate (19.5%), the largest failed
+transaction value (₹41.26M), and substantially higher latency than the other gateways. Begin with its timeout-related failures, which account 
+for 44.65% of Gateway B failures and approximately ₹18.39M in failed transaction value. Review Gateway B's timeout configuration, 
+processing capacity, integration reliability, and error-handling behavior, and benchmark its performance against Gateway A. 
+Do not prioritize payment-method-specific changes at this stage because payment methods show relatively consistent performance across the dataset.
+For settlement operations, maintain the existing one-day settlement process as the benchmark while implementing automated monitoring and 
+escalation for missing, delayed, and amount-mismatched settlements, which collectively represent approximately ₹13.59M in transaction value.
+
+In one sentence, the business solution is:
+
+Fix and closely monitor Gateway B—particularly its timeout-related failures—while using Gateway A as the performance benchmark and 
+strengthening automated settlement-exception monitoring for the ₹13.59M currently exposed to reconciliation issues.
